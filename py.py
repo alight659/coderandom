@@ -1,82 +1,90 @@
-#from random import randint
-#import pickle
-#import csv
-#def SI(p, r, t):
-#	return (p*r*t)/100
-#
-#def oddeven(num):
-#	if num%2 != 0:
-#		return "Odd"
-#	else:
-#		return "Even"
-#
-#def grader(m):
-#	if m <= 32:
-#		return "E"
-#	elif m >= 33 and m <= 40:
-#		return "D"
-#	elif m >= 41 and m <= 60:
-#		return "C"
-#	elif m >= 61 and m <= 80:
-#		return "B"
-#	elif m >= 81 and m <= 100:
-#		return "A"
-#	else:
-#		return "Out of range."
-#
-#def removeOdd(list1):
-#	for i in list1:
-#		if i%2 != 0:
-#			list1.remove(i)
-#	
-#	return list1
-#
-#def occCount(s, l):
-#	count = 0
-#	for i in s:
-#		if i == l:
-#			count += 1
-#
-#	return count
-#
-#def nSum(n):
-#	return (n*(n+1))/2
-#
-#def dice():
-#	return randint(1,6)
-#def Append(stack):
-#	if len(stack) >= 10:
-#		print("OverFlow!")
-#	else:
-#		x = input("Enter an element to add: ")
-#		stack.append(x)
-#		print("Element added.")
-#	
-#def Peek(stack):
-#	if len(stack) > 0:
-#		print(stack[-1])
-#	else:
-#		print("The stack is empty.")
-#	
-#def Display(stack):
-#	if len(stack) > 0:
-#		for i in stack:
-#			print(i, end=", ")
-#		print("\n")
-#	else:
-#		print("The stack is empty.")
-#	
-#def Pop(stack):
-#	x = input("Enter element to Remove: ")
-#	if x in stack:
-#		stack.remove(x)
-#		print("Element Removed.")
-#	else:
-#		print("Element does not exist.")
-#
+from random import randint
+import pickle
+import csv
+
+#Q1
+def SI(p, r, t):
+	return (p*r*t)/100
+
+#Q2
+def oddeven(num):
+	if num%2 != 0:
+		return "Odd"
+	else:
+		return "Even"
+
+#Q3
+def grader(m):
+	if m <= 32:
+		return "E"
+	elif m >= 33 and m <= 40:
+		return "D"
+	elif m >= 41 and m <= 60:
+		return "C"
+	elif m >= 61 and m <= 80:
+		return "B"
+	elif m >= 81 and m <= 100:
+		return "A"
+	else:
+		return "Out of range."
+
+#Q4
+def removeOdd(list1):
+	for i in list1:
+		if i%2 != 0:
+			list1.remove(i)
+	
+	return list1
+
+#Q6
+def occCount(s, l):
+	count = 0
+	for i in s:
+		if i == l:
+			count += 1
+
+	return count
+
+#Q7
+def nSum(n):
+	return (n*(n+1))/2
+
+#Q13
+def dice():
+	return randint(1,6)
+#Q15
+def Append(stack):
+	if len(stack) >= 10:
+		print("OverFlow!")
+	else:
+		x = input("Enter an element to add: ")
+		stack.append(x)
+		print("Element added.")
+	
+def Peek(stack):
+	if len(stack) > 0:
+		print(stack[-1])
+	else:
+		print("The stack is empty.")
+	
+def Display(stack):
+	if len(stack) > 0:
+		for i in stack:
+			print(i, end=", ")
+		print("\n")
+	else:
+		print("The stack is empty.")
+	
+def Pop(stack):
+	x = input("Enter element to Remove: ")
+	if x in stack:
+		stack.remove(x)
+		print("Element Removed.")
+	else:
+		print("Element does not exist.")
 
 if __name__ == "__main__":
-	'''#1 WAP for calculating simple interest.
+	#1 WAP for calculating simple interest.
 	p = float(input("Enter the principal amount: "))
 	r = float(input("Enter the rate of interest: "))
 	t = float(input("Enter the time period(in years): "))
@@ -227,4 +235,3 @@ if __name__ == "__main__":
 		else:
 			print("Invalid Choice. Try Again.")
 
-'''
