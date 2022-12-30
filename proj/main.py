@@ -1,7 +1,9 @@
+import csv
 import tkinter as tk
 import tkinter.font as tkf
 import mysql.connector as sqc
 from tkinter import ttk
+from tkinter import messagebox
 
 class Books:
   def __init__(self):
@@ -17,12 +19,14 @@ class Books:
     self.add_button = tk.Button(self.window, text="Add Book", command=self.add_book)
     self.delete_button = tk.Button(self.window, text="Delete Book", command=self.delete_book)
     self.view_button = tk.Button(self.window, text="View Books", command=self.view_books)
+    self.export_button = tk.Button(self.window, text="Export to CSV", command=self.export_to_csv)
     
     # Pack
     self.title_label.pack()
     self.add_button.pack()
     self.delete_button.pack()
     self.view_button.pack()
+    self.export_button.pack()
     
   def add_book(self):
     # Create a new window for adding a book
@@ -162,6 +166,34 @@ class Books:
     # Run the window loop
     book_window.mainloop()
   #view_books function ENDS HERE
+
+  def export_to_csv(self):
+    # Connect to the database
+    conn = sqc.connect(
+      host="localhost",
+      user="root",
+      password="toor",
+      db = "library"
+    )
+
+    # Create a cursor
+    cursor = conn.cursor()
+
+    # Execute a SELECT query
+    cursor.execute("SELECT * FROM books")
+
+    # Fetch all the rows
+    rows = cursor.fetchall()
+
+    # Write to CSV file
+    with open("bookdb.csv", "w", newline="") as binary_File:
+      csv_write = csv.writer(binary_File)
+      csv_write.writerow(["id","Name","Author","Year"])
+      for row in rows:
+          csv_write.writerow(row)
+    
+    # Show MessageBox
+    messagebox.showinfo("Success", "File export is successful!")
   
   def run(self):
     # Connect to the database
